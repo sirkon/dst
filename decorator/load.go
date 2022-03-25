@@ -7,9 +7,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/dave/dst"
-	"github.com/dave/dst/decorator/resolver"
-	"github.com/dave/dst/decorator/resolver/gopackages"
+	"github.com/sirkon/dst"
+	"github.com/sirkon/dst/decorator/resolver"
+	"github.com/sirkon/dst/decorator/resolver/gopackages"
 	"golang.org/x/tools/go/packages"
 )
 

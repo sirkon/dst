@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dave/dst"
+	"github.com/sirkon/dst"
 )
 
 func (f *fileDecorator) addDecorationFragment(n ast.Node, name string, pos token.Pos) {

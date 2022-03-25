@@ -5,8 +5,8 @@ import (
 	"go/format"
 	"testing"
 
-	"github.com/dave/dst"
-	"github.com/dave/dst/dstutil"
+	"github.com/sirkon/dst"
+	"github.com/sirkon/dst/dstutil"
 )
 
 func TestRestorerFunc(t *testing.T) {

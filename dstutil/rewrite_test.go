@@ -12,9 +12,9 @@ import (
 	"go/token"
 	"testing"
 
-	"github.com/dave/dst"
-	"github.com/dave/dst/decorator"
-	"github.com/dave/dst/dstutil"
+	"github.com/sirkon/dst"
+	"github.com/sirkon/dst/decorator"
+	"github.com/sirkon/dst/dstutil"
 )
 
 var rewriteTests = [...]struct {

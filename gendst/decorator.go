@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/dave/dst/gendst/data"
+	"github.com/sirkon/dst/gendst/data"
 	. "github.com/dave/jennifer/jen"
 )
 

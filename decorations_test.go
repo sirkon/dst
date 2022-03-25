@@ -11,13 +11,13 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/dave/dst"
-	"github.com/dave/dst/decorator"
-	"github.com/dave/dst/decorator/resolver/goast"
-	"github.com/dave/dst/decorator/resolver/gopackages"
-	"github.com/dave/dst/decorator/resolver/gotypes"
-	"github.com/dave/dst/decorator/resolver/guess"
-	"github.com/dave/dst/dstutil"
+	"github.com/sirkon/dst"
+	"github.com/sirkon/dst/decorator"
+	"github.com/sirkon/dst/decorator/resolver/goast"
+	"github.com/sirkon/dst/decorator/resolver/gopackages"
+	"github.com/sirkon/dst/decorator/resolver/gotypes"
+	"github.com/sirkon/dst/decorator/resolver/guess"
+	"github.com/sirkon/dst/dstutil"
 	"golang.org/x/tools/go/packages"
 )
 

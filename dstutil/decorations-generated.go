@@ -1,6 +1,6 @@
 package dstutil
 
-import "github.com/dave/dst"
+import "github.com/sirkon/dst"
 
 func decorations(n dst.Node) (before, after dst.SpaceType, points []DecorationPoint) {
 	switch n := n.(type) {
@@ -218,6 +218,14 @@ func decorations(n dst.Node) (before, after dst.SpaceType, points []DecorationPo
 		points = append(points, DecorationPoint{"X", n.Decs.X})
 		points = append(points, DecorationPoint{"Lbrack", n.Decs.Lbrack})
 		points = append(points, DecorationPoint{"Index", n.Decs.Index})
+		points = append(points, DecorationPoint{"End", n.Decs.End})
+	case *dst.IndexListExpr:
+		before = n.Decs.Before
+		after = n.Decs.After
+		points = append(points, DecorationPoint{"Start", n.Decs.Start})
+		points = append(points, DecorationPoint{"X", n.Decs.X})
+		points = append(points, DecorationPoint{"Lbrack", n.Decs.Lbrack})
+		points = append(points, DecorationPoint{"Indices", n.Decs.Indices})
 		points = append(points, DecorationPoint{"End", n.Decs.End})
 	case *dst.InterfaceType:
 		before = n.Decs.Before

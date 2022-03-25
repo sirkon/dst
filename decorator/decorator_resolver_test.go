@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/dave/dst"
+	"github.com/sirkon/dst"
 	"golang.org/x/tools/go/packages"
 )
 

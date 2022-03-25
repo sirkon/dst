@@ -163,6 +163,13 @@ type (
 		Decs  IndexExprDecorations
 	}
 
+	// An IndexListExpr node represents an expression followed by multiple indices.
+	IndexListExpr struct {
+		X       Expr
+		Indices []Expr
+		Decs    IndexListExprDecorations
+	}
+
 	// An SliceExpr node represents an expression followed by slice indices.
 	SliceExpr struct {
 		X      Expr // expression
@@ -258,10 +265,11 @@ type (
 
 	// A FuncType node represents a function type.
 	FuncType struct {
-		Func    bool
-		Params  *FieldList // (incoming) parameters; non-nil
-		Results *FieldList // (outgoing) results; or nil
-		Decs    FuncTypeDecorations
+		Func       bool
+		Params     *FieldList // (incoming) parameters; non-nil
+		Results    *FieldList // (outgoing) results; or nil
+		TypeParams *FieldList
+		Decs       FuncTypeDecorations
 	}
 
 	// An InterfaceType node represents an interface type.
@@ -298,6 +306,7 @@ func (*CompositeLit) exprNode()   {}
 func (*ParenExpr) exprNode()      {}
 func (*SelectorExpr) exprNode()   {}
 func (*IndexExpr) exprNode()      {}
+func (*IndexListExpr) exprNode()  {}
 func (*SliceExpr) exprNode()      {}
 func (*TypeAssertExpr) exprNode() {}
 func (*CallExpr) exprNode()       {}
@@ -569,10 +578,11 @@ type (
 
 	// A TypeSpec node represents a type declaration (TypeSpec production).
 	TypeSpec struct {
-		Name   *Ident // type name
-		Assign bool   // position of '=', if any
-		Type   Expr   // *Ident, *ParenExpr, *SelectorExpr, *StarExpr, or any of the *XxxTypes
-		Decs   TypeSpecDecorations
+		Name       *Ident // type name
+		TypeParams *FieldList
+		Assign     bool // position of '=', if any
+		Type       Expr // *Ident, *ParenExpr, *SelectorExpr, *StarExpr, or any of the *XxxTypes
+		Decs       TypeSpecDecorations
 	}
 )
 

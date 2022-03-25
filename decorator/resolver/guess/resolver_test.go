@@ -3,8 +3,8 @@ package guess_test
 import (
 	"testing"
 
-	"github.com/dave/dst/decorator/resolver"
-	"github.com/dave/dst/decorator/resolver/guess"
+	"github.com/sirkon/dst/decorator/resolver"
+	"github.com/sirkon/dst/decorator/resolver/guess"
 )
 
 func TestRestorerResolver(t *testing.T) {

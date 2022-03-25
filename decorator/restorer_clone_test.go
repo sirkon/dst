@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/dave/dst"
-	"github.com/dave/dst/decorator/resolver/gobuild"
+	"github.com/sirkon/dst"
+	"github.com/sirkon/dst/decorator/resolver/gobuild"
 )
 
 func TestClone(t *testing.T) {

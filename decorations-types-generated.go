@@ -368,6 +368,15 @@ type IndexExprDecorations struct {
 	Index  Decorations
 }
 
+// IndexListExprDecorations holds decorations for IndexListExpr:
+//
+type IndexListExprDecorations struct {
+	NodeDecs
+	X       Decorations
+	Lbrack  Decorations
+	Indices Decorations
+}
+
 // InterfaceTypeDecorations holds decorations for InterfaceType:
 //
 // 	type U /*Start*/ interface /*Interface*/ {

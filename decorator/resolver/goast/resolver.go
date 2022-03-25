@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/dave/dst/decorator/resolver"
-	"github.com/dave/dst/decorator/resolver/guess"
+	"github.com/sirkon/dst/decorator/resolver"
+	"github.com/sirkon/dst/decorator/resolver/guess"
 )
 
 func New() *DecoratorResolver {

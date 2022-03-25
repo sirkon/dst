@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dave/dst/decorator/resolver/gobuild"
+	"github.com/sirkon/dst/decorator/resolver/gobuild"
 )
 
 func TestLoadStdLibAll(t *testing.T) {

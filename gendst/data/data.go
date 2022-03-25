@@ -416,6 +416,44 @@ var Info = map[string][]Part{
 			Name: "End",
 		},
 	},
+	"IndexListExpr": {
+		Decoration{
+			Name: "Start",
+		},
+		Node{
+			Name:  "X",
+			Field: Field{"X"},
+			Type:  Iface{"Expr"},
+		},
+		Decoration{
+			Name: "X",
+		},
+		Token{
+			Name:          "Lbrack",
+			Token:         Basic{jen.Qual("go/token", "LBRACK")},
+			PositionField: Field{"Lbrack"},
+		},
+		Decoration{
+			Name: "Lbrack",
+		},
+		List{
+			Name:      "Indices",
+			Field:     Field{"Indices"},
+			Elem:      Iface{"Expr"},
+			Separator: token.COMMA,
+		},
+		Decoration{
+			Name: "Indices",
+		},
+		Token{
+			Name:          "Rbrack",
+			Token:         Basic{jen.Qual("go/token", "RBRACK")},
+			PositionField: Field{"Rbrack"},
+		},
+		Decoration{
+			Name: "End",
+		},
+	},
 	/*
 		// An SliceExpr node represents an expression followed by slice indices.
 		SliceExpr struct {
@@ -875,6 +913,11 @@ var Info = map[string][]Part{
 			Field: Field{"Results"},
 			Type:  Struct{"FieldList"},
 		},
+		Node{
+			Name:  "TypeParams",
+			Field: Field{"TypeParams"},
+			Type:  Struct{"FieldList"},
+		},
 		Decoration{
 			Name: "End",
 		},
@@ -1169,7 +1212,7 @@ var Info = map[string][]Part{
 			Value Expr
 		}
 	*/
-	///*Start*/
+	// /*Start*/
 	//	c /*Chan*/ <- /*Arrow*/ 0 /*End*/
 	"SendStmt": {
 		Decoration{
@@ -1964,6 +2007,11 @@ var Info = map[string][]Part{
 			Name: "Name",
 		},
 		Node{
+			Name:  "TypeParams",
+			Field: Field{"TypeParams"},
+			Type:  Struct{"FieldList"},
+		},
+		Node{
 			Name:  "Type",
 			Field: Field{"Type"},
 			Type:  Iface{"Expr"},
@@ -2288,6 +2336,7 @@ var Exprs = map[string]bool{
 	"ParenExpr":      true,
 	"SelectorExpr":   true,
 	"IndexExpr":      true,
+	"IndexListExpr":  true,
 	"SliceExpr":      true,
 	"TypeAssertExpr": true,
 	"CallExpr":       true,
