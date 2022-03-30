@@ -253,11 +253,12 @@ type ForStmtDecorations struct {
 //
 type FuncDeclDecorations struct {
 	NodeDecs
-	Func    Decorations
-	Recv    Decorations
-	Name    Decorations
-	Params  Decorations
-	Results Decorations
+	Func       Decorations
+	Recv       Decorations
+	Name       Decorations
+	TypeParams Decorations
+	Params     Decorations
+	Results    Decorations
 }
 
 // FuncLitDecorations holds decorations for FuncLit:

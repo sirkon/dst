@@ -8,7 +8,7 @@ import (
 
 // notest
 
-const DSTPATH = "github.com/dave/dst"
+const DSTPATH = "github.com/sirkon/dst"
 
 type Part interface{}
 
@@ -900,6 +900,11 @@ var Info = map[string][]Part{
 			},
 		},
 		Node{
+			Name:  "TypeParams",
+			Field: Field{"TypeParams"},
+			Type:  Struct{"FieldList"},
+		},
+		Node{
 			Name:  "Params",
 			Field: Field{"Params"},
 			Type:  Struct{"FieldList"},
@@ -911,11 +916,6 @@ var Info = map[string][]Part{
 		Node{
 			Name:  "Results",
 			Field: Field{"Results"},
-			Type:  Struct{"FieldList"},
-		},
-		Node{
-			Name:  "TypeParams",
-			Field: Field{"TypeParams"},
 			Type:  Struct{"FieldList"},
 		},
 		Decoration{
@@ -2182,6 +2182,14 @@ var Info = map[string][]Part{
 		},
 		Decoration{
 			Name: "Name",
+		},
+		Node{
+			Name:  "TypeParams",
+			Field: InnerField{"Type", "TypeParams"},
+			Type:  Struct{"FieldList"},
+		},
+		Decoration{
+			Name: "TypeParams",
 		},
 		Node{
 			Name:  "Params",

@@ -616,6 +616,14 @@ func (f *fileDecorator) addNodeFragments(n ast.Node) {
 		// Decoration: Name
 		f.addDecorationFragment(n, "Name", token.NoPos)
 
+		// Node: TypeParams
+		if n.Type.TypeParams != nil {
+			f.addNodeFragments(n.Type.TypeParams)
+		}
+
+		// Decoration: TypeParams
+		f.addDecorationFragment(n, "TypeParams", token.NoPos)
+
 		// Node: Params
 		if n.Type.Params != nil {
 			f.addNodeFragments(n.Type.Params)
@@ -678,6 +686,11 @@ func (f *fileDecorator) addNodeFragments(n ast.Node) {
 			f.addDecorationFragment(n, "Func", token.NoPos)
 		}
 
+		// Node: TypeParams
+		if n.TypeParams != nil {
+			f.addNodeFragments(n.TypeParams)
+		}
+
 		// Node: Params
 		if n.Params != nil {
 			f.addNodeFragments(n.Params)
@@ -691,11 +704,6 @@ func (f *fileDecorator) addNodeFragments(n ast.Node) {
 		// Node: Results
 		if n.Results != nil {
 			f.addNodeFragments(n.Results)
-		}
-
-		// Node: TypeParams
-		if n.TypeParams != nil {
-			f.addNodeFragments(n.TypeParams)
 		}
 
 		// Decoration: End

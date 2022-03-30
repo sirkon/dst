@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 
-	"github.com/sirkon/dst/gendst/data"
 	. "github.com/dave/jennifer/jen"
+	"github.com/sirkon/dst/gendst/data"
 )
 
 // notest
 
-const DSTPATH = "github.com/dave/dst"
+const DSTPATH = "github.com/sirkon/dst"
 
 func generateDecorator(names []string) error {
 

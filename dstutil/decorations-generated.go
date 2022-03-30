@@ -155,6 +155,7 @@ func decorations(n dst.Node) (before, after dst.SpaceType, points []DecorationPo
 		points = append(points, DecorationPoint{"Func", n.Decs.Func})
 		points = append(points, DecorationPoint{"Recv", n.Decs.Recv})
 		points = append(points, DecorationPoint{"Name", n.Decs.Name})
+		points = append(points, DecorationPoint{"TypeParams", n.Decs.TypeParams})
 		points = append(points, DecorationPoint{"Params", n.Decs.Params})
 		points = append(points, DecorationPoint{"Results", n.Decs.Results})
 		points = append(points, DecorationPoint{"End", n.Decs.End})

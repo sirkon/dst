@@ -805,6 +805,14 @@ func (r *FileRestorer) restoreNode(n dst.Node, parentName, parentField, parentFi
 		// Decoration: Name
 		r.applyDecorations(out, n.Decs.Name, false)
 
+		// Node: TypeParams
+		if n.Type.TypeParams != nil {
+			out.Type.TypeParams = r.restoreNode(n.Type.TypeParams, "FuncDecl", "TypeParams", "FieldList", allowDuplicate).(*ast.FieldList)
+		}
+
+		// Decoration: TypeParams
+		r.applyDecorations(out, n.Decs.TypeParams, false)
+
 		// Node: Params
 		if n.Type.Params != nil {
 			out.Type.Params = r.restoreNode(n.Type.Params, "FuncDecl", "Params", "FieldList", allowDuplicate).(*ast.FieldList)
@@ -882,6 +890,11 @@ func (r *FileRestorer) restoreNode(n dst.Node, parentName, parentField, parentFi
 		// Decoration: Func
 		r.applyDecorations(out, n.Decs.Func, false)
 
+		// Node: TypeParams
+		if n.TypeParams != nil {
+			out.TypeParams = r.restoreNode(n.TypeParams, "FuncType", "TypeParams", "FieldList", allowDuplicate).(*ast.FieldList)
+		}
+
 		// Node: Params
 		if n.Params != nil {
 			out.Params = r.restoreNode(n.Params, "FuncType", "Params", "FieldList", allowDuplicate).(*ast.FieldList)
@@ -893,11 +906,6 @@ func (r *FileRestorer) restoreNode(n dst.Node, parentName, parentField, parentFi
 		// Node: Results
 		if n.Results != nil {
 			out.Results = r.restoreNode(n.Results, "FuncType", "Results", "FieldList", allowDuplicate).(*ast.FieldList)
-		}
-
-		// Node: TypeParams
-		if n.TypeParams != nil {
-			out.TypeParams = r.restoreNode(n.TypeParams, "FuncType", "TypeParams", "FieldList", allowDuplicate).(*ast.FieldList)
 		}
 
 		// Decoration: End

@@ -930,6 +930,15 @@ func (f *fileDecorator) decorateNode(parent ast.Node, parentName, parentField, p
 			out.Name = child.(*dst.Ident)
 		}
 
+		// Node: TypeParams
+		if n.Type.TypeParams != nil {
+			child, err := f.decorateNode(n, "FuncDecl", "TypeParams", "FieldList", n.Type.TypeParams)
+			if err != nil {
+				return nil, err
+			}
+			out.Type.TypeParams = child.(*dst.FieldList)
+		}
+
 		// Node: Params
 		if n.Type.Params != nil {
 			child, err := f.decorateNode(n, "FuncDecl", "Params", "FieldList", n.Type.Params)
@@ -969,6 +978,9 @@ func (f *fileDecorator) decorateNode(parent ast.Node, parentName, parentField, p
 			}
 			if decs, ok := nd["Name"]; ok {
 				out.Decs.Name = decs
+			}
+			if decs, ok := nd["TypeParams"]; ok {
+				out.Decs.TypeParams = decs
 			}
 			if decs, ok := nd["Params"]; ok {
 				out.Decs.Params = decs
@@ -1032,6 +1044,15 @@ func (f *fileDecorator) decorateNode(parent ast.Node, parentName, parentField, p
 		// Token: Func
 		out.Func = n.Func.IsValid()
 
+		// Node: TypeParams
+		if n.TypeParams != nil {
+			child, err := f.decorateNode(n, "FuncType", "TypeParams", "FieldList", n.TypeParams)
+			if err != nil {
+				return nil, err
+			}
+			out.TypeParams = child.(*dst.FieldList)
+		}
+
 		// Node: Params
 		if n.Params != nil {
 			child, err := f.decorateNode(n, "FuncType", "Params", "FieldList", n.Params)
@@ -1048,15 +1069,6 @@ func (f *fileDecorator) decorateNode(parent ast.Node, parentName, parentField, p
 				return nil, err
 			}
 			out.Results = child.(*dst.FieldList)
-		}
-
-		// Node: TypeParams
-		if n.TypeParams != nil {
-			child, err := f.decorateNode(n, "FuncType", "TypeParams", "FieldList", n.TypeParams)
-			if err != nil {
-				return nil, err
-			}
-			out.TypeParams = child.(*dst.FieldList)
 		}
 
 		if nd, ok := f.decorations[n]; ok {

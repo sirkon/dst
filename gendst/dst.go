@@ -9,8 +9,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/sirkon/dst/gendst/data"
 	. "github.com/dave/jennifer/jen"
+	"github.com/sirkon/dst/gendst/data"
 	"golang.org/x/tools/go/loader"
 )
 
@@ -43,7 +43,7 @@ func generateDst(names []string) error {
 
 func generateDstDecs(names []string) error {
 
-	path := "github.com/dave/dst/gendst/data"
+	path := "github.com/sirkon/dst/gendst/data"
 	conf := loader.Config{ParserMode: parser.ParseComments}
 	conf.Import(path)
 	prog, err := conf.Load()
